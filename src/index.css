@@ -1,0 +1,158 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gradient-to-br from-dark-800 via-dark-900 to-dark-800;
+  }
+}
+
+@layer utilities {
+  .animate-gradient-slow {
+    animation: gradient 15s ease infinite;
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center px-6 py-3 rounded-lg
+    bg-gradient-to-r from-primary-500 to-accent-500 hover:from-primary-600 hover:to-accent-600
+    text-white font-medium shadow-lg hover:shadow-xl
+    transform transition-all duration-200 hover:-translate-y-0.5;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center px-6 py-3 rounded-lg
+    bg-dark-700 hover:bg-dark-600 text-white
+    border border-dark-500 hover:border-primary-500
+    transition-all duration-200;
+  }
+
+  .card {
+    @apply bg-dark-800/50 backdrop-blur-lg
+    border border-dark-600 hover:border-primary-500/50
+    rounded-xl shadow-lg hover:shadow-primary-500/10
+    transition-all duration-300;
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r
+    from-primary-400 via-accent-400 to-primary-400
+    animate-gradient;
+  }
+
+  .nav-link {
+    @apply relative text-dark-300 hover:text-primary-400
+    after:absolute after:bottom-0 after:left-0 after:h-0.5
+    after:w-0 after:bg-primary-400 after:transition-all
+    hover:after:w-full;
+  }
+
+  /* OS-specific styles */
+  .window-blur {
+    @apply bg-opacity-95 backdrop-blur-md;
+  }
+
+  .taskbar-blur {
+    @apply bg-opacity-90 backdrop-blur-lg;
+  }
+
+  .desktop-icon {
+    @apply transition-all duration-200 hover:scale-105;
+  }
+
+  .window-header {
+    @apply bg-opacity-95 backdrop-blur-sm;
+  }
+
+  .start-menu {
+    @apply bg-opacity-95 backdrop-blur-md;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  @apply w-2;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-dark-800;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-dark-600 rounded-full hover:bg-dark-500 transition-colors;
+}
+
+/* Glass morphism effect */
+.glass {
+  @apply bg-dark-800/30 backdrop-blur-md
+    border border-white/10
+    shadow-lg;
+}
+
+/* Window animations */
+@keyframes windowOpen {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.window-open {
+  animation: windowOpen 0.2s ease-out forwards;
+}
+
+/* Start menu animations */
+@keyframes menuSlideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.menu-slide-up {
+  animation: menuSlideUp 0.2s ease-out forwards;
+}
+
+/* Taskbar hover effects */
+.taskbar-icon {
+  @apply transition-colors duration-200 hover:bg-gray-700/50 rounded-lg p-2;
+}
+
+/* Window control buttons */
+.window-control {
+  @apply p-1.5 rounded-md transition-colors duration-200;
+}
+
+.window-close {
+  @apply hover:bg-red-500 hover:text-white;
+}
+
+.window-maximize {
+  @apply hover:bg-gray-700 hover:text-white;
+}
+
+.window-minimize {
+  @apply hover:bg-gray-700 hover:text-white;
+}
