@@ -1,5 +1,4 @@
-<div align="center">
-  <img src="public/logo.png" alt="NafOS Logo" width="120" height="120" style="border-radius: 20px;">
+
 
   # NafOS - Modern Portfolio Experience
 
