@@ -49,7 +49,7 @@
 - **Animations**: Framer Motion
 - **Icons**: Lucide Icons
 - **Build Tool**: Vite
-- **Deployment**: Vercel
+- **Deployment**: Netlify
 
 ## 🚀 Quick Start
 
