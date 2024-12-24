@@ -10,7 +10,7 @@
   <p align="center">
     A unique portfolio experience that reimagines the traditional portfolio as a modern operating system.
     <br />
-    <a href="https://nafos.vercel.app">View Demo</a>
+    <a href="nafiyadadaneportfolio.netlify.app">View Demo</a>
     ·
     <a href="https://github.com/nafiyad/nafos/issues">Report Bug</a>
     ·
