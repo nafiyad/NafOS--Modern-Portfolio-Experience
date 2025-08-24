@@ -2,6 +2,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { Desktop } from './components/Desktop';
 import { MobileOS } from './components/MobileOS';
 import { useEffect, useState } from 'react';
+import { WallpaperProvider } from './contexts/WallpaperContext';
 
 function App() {
   const [isMobile, setIsMobile] = useState(false);
@@ -18,11 +19,13 @@ function App() {
   }, []);
 
   return (
-    <Router>
-      <div className="h-screen">
-        {isMobile ? <MobileOS /> : <Desktop />}
-      </div>
-    </Router>
+    <WallpaperProvider>
+      <Router>
+        <div className="h-screen">
+          {isMobile ? <MobileOS /> : <Desktop />}
+        </div>
+      </Router>
+    </WallpaperProvider>
   );
 }
 

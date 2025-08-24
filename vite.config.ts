@@ -11,6 +11,13 @@ export default defineConfig({
     port: 3001,
     host: true,
     open: true,
+    proxy: {
+      '/api/proxy': {
+        target: 'http://localhost:3003',
+        changeOrigin: true,
+        secure: false,
+      },
+    },
   },
   resolve: {
     alias: {

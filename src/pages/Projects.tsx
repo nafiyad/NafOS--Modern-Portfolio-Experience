@@ -5,10 +5,10 @@ import { Search, Filter, Code, GitBranch, Clock } from 'lucide-react';
 const projects = [
   {
     title: "portfolio-website",
-    description: "Personal portfolio website built with React and Tailwind CSS. Features responsive design, dark mode, and smooth animations.",
-    technologies: ["React", "TypeScript", "Tailwind CSS"],
-    githubUrl: "https://github.com/yourusername/portfolio",
-    liveUrl: "https://your-portfolio.com",
+    description: "Modern portfolio website built with React, TypeScript, and Tailwind CSS. Features a desktop OS-like interface with interactive components, dark mode, and smooth animations.",
+    technologies: ["React", "TypeScript", "Tailwind CSS", "Vite"],
+    githubUrl: "https://github.com/yourusername/portfolio-website",
+    liveUrl: "https://nafiyadadaneportfolio.netlify.app",
     lastUpdated: "2024-03-15",
     status: "Active",
     stars: 12,
@@ -16,28 +16,53 @@ const projects = [
     watchers: 8
   },
   {
-    title: "ecommerce-dashboard",
-    description: "A comprehensive admin dashboard for e-commerce platforms. Includes order management, analytics, and inventory tracking.",
-    technologies: ["React", "Node.js", "MongoDB"],
-    githubUrl: "https://github.com/yourusername/ecommerce-dashboard",
-    lastUpdated: "2024-02-28",
-    status: "In Progress",
-    stars: 45,
-    forks: 12,
+    title: "Taskly",
+    description: "Modern productivity and habit tracking SaaS app with subscription management. Features task organization with priorities, habit tracking with streaks, gamification through badges and achievements, and real-time data synchronization. Built with a scalable freemium business model.",
+    technologies: ["React", "TypeScript", "Vite", "Tailwind CSS", "Supabase", "PostgreSQL"],
+    githubUrl: "https://github.com/nafiyad/Taskly-",
+    liveUrl: "https://taskly-by-nafiyad.netlify.app/",
+    lastUpdated: "2024-03-20",
+    status: "Active",
+    image: "/assets/images/taskly.png",
+    stars: 24,
+    forks: 7,
     watchers: 15
   },
   {
-    title: "weather-app",
-    description: "Real-time weather application using OpenWeather API. Features include location-based forecasts and interactive maps.",
-    technologies: ["JavaScript", "API", "CSS"],
-    githubUrl: "https://github.com/yourusername/weather-app",
-    liveUrl: "https://your-weather-app.com",
-    lastUpdated: "2024-01-20",
+    title: "Expenza",
+    description: "Budget management mobile application available on Google Play Store. Helps users track expenses, manage budgets, and gain insights into spending patterns with intuitive UI and comprehensive financial tools.",
+    technologies: ["React Native", "JavaScript", "Firebase", "Android"],
+    liveUrl: "https://play.google.com/store/apps/details?id=com.expenza.app",
+    lastUpdated: "2024-02-10",
+    status: "Published",
+    stars: 0,
+    forks: 0,
+    watchers: 0
+  },
+  {
+    title: "S&M Couture Inc - Ecommerce Platform",
+    description: "Group capstone project developing a comprehensive ecommerce platform for S&M Couture Inc. Served as frontend developer, implementing responsive UI, product catalog, shopping cart, user authentication, and payment processing with Stripe integration.",
+    technologies: ["Next.js", "React", "TypeScript", "Prisma", "Stripe", "Neon DB", "Tailwind CSS"],
+    githubUrl: "https://github.com/yourusername/sm-couture-ecommerce",
+    lastUpdated: "2024-01-15",
     status: "Completed",
-    stars: 28,
-    forks: 8,
-    watchers: 10
-  }
+    stars: 8,
+    forks: 4,
+    watchers: 6
+  },
+  {
+      title: "WeatherPro",
+      description: "A beautiful, high-performance weather application featuring stunning visual effects and automatic location detection. Includes dynamic particle systems, golden hour themes, 5-day forecasts, and professional glass morphism UI design.",
+      technologies: ["React", "TypeScript", "Vite", "Tailwind CSS", "Weather API", "Lucide React"],
+      githubUrl: "https://github.com/nafiyad/weatherpro",
+      liveUrl: "https://weatherpro-by-nafiyad.netlify.app",
+      lastUpdated: "2024-03-20",
+      status: "Active",
+      image: "/assets/images/weatherpro.png",
+      stars: 18,
+      forks: 5,
+      watchers: 12
+    }
 ];
 
 type SortOption = 'stars' | 'updated' | 'name';

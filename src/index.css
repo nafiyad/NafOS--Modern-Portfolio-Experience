@@ -28,58 +28,96 @@
 
 @layer components {
   .btn-primary {
-    @apply inline-flex items-center px-6 py-3 rounded-lg
-    bg-gradient-to-r from-primary-500 to-accent-500 hover:from-primary-600 hover:to-accent-600
-    text-white font-medium shadow-lg hover:shadow-xl
-    transform transition-all duration-200 hover:-translate-y-0.5;
+    @apply inline-flex items-center px-6 py-3 rounded-xl
+    bg-gradient-to-r from-gradient-blue via-gradient-purple to-gradient-pink hover:from-primary-600 hover:via-accent-600 hover:to-secondary-500
+    text-white font-medium shadow-2xl hover:shadow-3xl
+    transform transition-all duration-500 ease-out hover:-translate-y-1;
+    background-size: 200% 200%;
+    animation: shimmer 3s ease-in-out infinite, glow 2s ease-in-out infinite alternate;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center px-6 py-3 rounded-lg
-    bg-dark-700 hover:bg-dark-600 text-white
-    border border-dark-500 hover:border-primary-500
-    transition-all duration-200;
+    @apply inline-flex items-center px-6 py-3 rounded-xl
+    bg-glass-ultra text-white
+    border border-white/30 hover:border-primary-500/70
+    shadow-xl hover:shadow-2xl
+    transition-all duration-500 hover:scale-105;
   }
 
   .card {
-    @apply bg-dark-800/50 backdrop-blur-lg
-    border border-dark-600 hover:border-primary-500/50
-    rounded-xl shadow-lg hover:shadow-primary-500/10
-    transition-all duration-300;
+    @apply glass-frosted backdrop-blur-xl
+    border border-white/10 hover:border-primary-500/50
+    rounded-2xl shadow-2xl hover:shadow-primary-500/20
+    transition-all duration-300 hover:-translate-y-1;
+    animation: fadeIn 0.8s ease-out, float 6s ease-in-out infinite;
   }
 
   .gradient-text {
     @apply bg-clip-text text-transparent bg-gradient-to-r
-    from-primary-400 via-accent-400 to-primary-400
-    animate-gradient;
+    from-gradient-blue via-gradient-purple to-gradient-pink;
+    background-size: 200% 200%;
+    animation: shimmer 4s ease-in-out infinite;
   }
 
   .nav-link {
     @apply relative text-dark-300 hover:text-primary-400
     after:absolute after:bottom-0 after:left-0 after:h-0.5
-    after:w-0 after:bg-primary-400 after:transition-all
-    hover:after:w-full;
+    after:w-0 after:bg-gradient-to-r after:from-primary-500 after:to-accent-500 after:transition-all
+    hover:after:w-full transition-all duration-500 hover:scale-105;
+  }
+
+  /* Animation Utility Classes */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  .animate-shimmer {
+    animation: shimmer 3s ease-in-out infinite;
+  }
+
+  .animate-morph {
+    animation: morphBackground 8s ease-in-out infinite;
+  }
+
+  .animate-breathe {
+    animation: breathe 4s ease-in-out infinite;
+  }
+
+  .animate-slide-up-enhanced {
+    animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .animate-slide-down-enhanced {
+    animation: slideDown 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .animate-scale-in-enhanced {
+    animation: scaleIn 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   /* OS-specific styles */
   .window-blur {
-    @apply bg-opacity-95 backdrop-blur-md;
+    @apply bg-glass-card backdrop-blur-md border border-white/10;
   }
 
   .taskbar-blur {
-    @apply bg-opacity-90 backdrop-blur-lg;
+    @apply bg-dark-900/75 backdrop-blur-md border-t border-white/10;
   }
 
   .desktop-icon {
-    @apply transition-all duration-200 hover:scale-105;
+    @apply transition-all duration-300 hover:scale-110 hover:drop-shadow-lg;
   }
 
   .window-header {
-    @apply bg-opacity-95 backdrop-blur-sm;
+    @apply bg-dark-900/95 backdrop-blur-sm border-b border-white/10;
   }
 
   .start-menu {
-    @apply bg-opacity-95 backdrop-blur-md;
+    @apply bg-glass-dark backdrop-blur-md border border-white/10 rounded-t-xl shadow-xl;
   }
 }
 
@@ -98,9 +136,44 @@
 
 /* Glass morphism effect */
 .glass {
-  @apply bg-dark-800/30 backdrop-blur-md
-    border border-white/10
-    shadow-lg;
+  @apply bg-white/[0.10] backdrop-blur-lg border border-white/[0.15] shadow-xl shadow-black/15 hover:shadow-primary-500/20 hover:bg-white/[0.14] transition-all duration-500 ease-out;
+  backdrop-filter: blur(12px) saturate(150%);
+  -webkit-backdrop-filter: blur(12px) saturate(150%);
+}
+
+.glass-card {
+  @apply bg-white/[0.08] backdrop-blur-lg border border-white/[0.12] rounded-2xl shadow-xl shadow-black/20;
+  backdrop-filter: blur(14px) saturate(160%) brightness(105%);
+  -webkit-backdrop-filter: blur(14px) saturate(160%) brightness(105%);
+}
+
+.glass-dark {
+  @apply bg-black/[0.30] backdrop-blur-lg border border-white/[0.08] shadow-xl shadow-black/30;
+  backdrop-filter: blur(16px) saturate(140%) contrast(110%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%) contrast(110%);
+}
+
+.glass-light {
+  @apply bg-white/[0.20] backdrop-blur-lg border border-white/[0.25] shadow-lg;
+  backdrop-filter: blur(12px) saturate(160%) brightness(103%);
+  -webkit-backdrop-filter: blur(12px) saturate(160%) brightness(103%);
+  box-shadow: 0 4px 16px rgba(255, 255, 255, 0.08);
+}
+
+.glass-ultra {
+  @apply bg-gradient-to-br from-white/[0.15] via-white/[0.12] to-white/[0.08] backdrop-blur-xl border border-white/[0.2] shadow-xl shadow-black/20;
+  backdrop-filter: blur(20px) saturate(150%) brightness(105%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%) brightness(105%);
+}
+
+.glass-frosted {
+  @apply bg-white/[0.12] backdrop-blur-xl border border-white/[0.15] shadow-xl;
+  backdrop-filter: blur(16px) saturate(150%) brightness(110%);
+  -webkit-backdrop-filter: blur(16px) saturate(150%) brightness(110%);
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.2),
+    0 0 0 1px rgba(255, 255, 255, 0.1) inset,
+    0 1px 0 rgba(255, 255, 255, 0.15) inset;
 }
 
 /* Window animations */
@@ -108,15 +181,17 @@
   from {
     transform: scale(0.95);
     opacity: 0;
+    filter: blur(4px);
   }
   to {
     transform: scale(1);
     opacity: 1;
+    filter: blur(0);
   }
 }
 
 .window-open {
-  animation: windowOpen 0.2s ease-out forwards;
+  animation: windowOpen 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 /* Start menu animations */
@@ -124,15 +199,33 @@
   from {
     transform: translateY(20px);
     opacity: 0;
+    filter: blur(4px);
   }
   to {
     transform: translateY(0);
     opacity: 1;
+    filter: blur(0);
   }
 }
 
 .menu-slide-up {
-  animation: menuSlideUp 0.2s ease-out forwards;
+  animation: menuSlideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Window minimize animation */
+@keyframes windowMinimize {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+}
+
+.window-minimize {
+  animation: windowMinimize 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 /* Taskbar hover effects */
@@ -155,4 +248,104 @@
 
 .window-minimize {
   @apply hover:bg-gray-700 hover:text-white;
+}
+
+/* Advanced Animations */
+@keyframes slideUp {
+  from {
+    transform: translateY(30px) scale(0.95);
+    opacity: 0;
+    filter: blur(10px);
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-30px) scale(0.95);
+    opacity: 0;
+    filter: blur(10px);
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+    filter: blur(5px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.8) rotate(-2deg);
+    opacity: 0;
+    filter: blur(8px);
+  }
+  to {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3), 0 0 30px rgba(147, 51, 234, 0.15);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes morphBackground {
+  0%, 100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+  50% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+  }
+}
+
+@keyframes breathe {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
 }

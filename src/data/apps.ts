@@ -6,7 +6,9 @@ import {
   Briefcase, 
   Terminal, 
   Award,
-  Gamepad2 
+  Gamepad2,
+  Cloud,
+  Globe
 } from 'lucide-react';
 import { Home } from '../pages/Home';
 import { About } from '../pages/About';
@@ -15,8 +17,11 @@ import { Projects } from '../pages/Projects';
 import { Resume } from '../pages/Resume';
 import { Terminal as TerminalApp } from '../pages/Terminal';
 import { Certificates } from '../pages/Certificates';
+import { Weather } from '../pages/Weather';
 import { Snake } from '../pages/games/Snake';
 import { TicTacToe } from '../pages/games/TicTacToe';
+import Portfolio from '../pages/Portfolio';
+
 import React from 'react';
 
 export interface App {
@@ -43,6 +48,14 @@ export const apps: App[] = [
     icon: React.createElement(User, { className: "h-6 w-6 text-emerald-500" }),
     bgColor: 'bg-emerald-500/10',
     component: About,
+    category: 'main'
+  },
+  {
+    id: 'portfolio',
+    title: 'Portfolio',
+    icon: React.createElement(Globe, { className: "h-6 w-6 text-teal-500" }),
+    bgColor: 'bg-teal-500/10',
+    component: Portfolio,
     category: 'main'
   },
   {
@@ -86,6 +99,14 @@ export const apps: App[] = [
     category: 'main'
   },
   {
+    id: 'weather',
+    title: 'Weather',
+    icon: React.createElement(Cloud, { className: "h-6 w-6 text-cyan-500" }),
+    bgColor: 'bg-cyan-500/10',
+    component: Weather,
+    category: 'tools'
+  },
+  {
     id: 'snake',
     title: 'Snake',
     icon: React.createElement(Gamepad2, { className: "h-6 w-6 text-green-500" }),
@@ -100,8 +121,9 @@ export const apps: App[] = [
     bgColor: 'bg-violet-500/10',
     component: TicTacToe,
     category: 'games'
-  }
+  },
+
 ];
 
 export const getAppsByCategory = (category: App['category']) => 
-  apps.filter(app => app.category === category); 
+  apps.filter(app => app.category === category);

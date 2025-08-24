@@ -4,20 +4,21 @@ interface ProjectCardProps {
   title: string;
   description: string;
   technologies: string[];
-  imageUrl: string;
+  image?: string;
   githubUrl?: string;
   liveUrl?: string;
   stars?: number;
   forks?: number;
   watchers?: number;
   lastUpdated: string;
-  status: 'Active' | 'In Progress' | 'Completed';
+  status: 'Active' | 'In Progress' | 'Completed' | 'Published';
 }
 
 export const ProjectCard = ({
   title,
   description,
   technologies,
+  image,
   githubUrl,
   liveUrl,
   stars = 0,
@@ -28,6 +29,18 @@ export const ProjectCard = ({
 }: ProjectCardProps) => {
   return (
     <div className="border border-gray-200 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 overflow-hidden">
+      {image && (
+        <div className="aspect-video w-full overflow-hidden">
+          <img 
+            src={image} 
+            alt={`${title} screenshot`}
+            className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+            onError={(e) => {
+              e.currentTarget.style.display = 'none';
+            }}
+          />
+        </div>
+      )}
       <div className="p-4">
         <div className="flex items-start justify-between">
           <div className="flex items-center">
